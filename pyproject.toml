@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "autoart-backend"
+version = "0.1.0"
+description = "A platform provides ML solutions by specifying steps automatically according to given data."
+authors = ["Eslem Karakaş <eslem.karakas.tr@gmail.com"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+boto3 = "^1.35.14"
+redshift-connector = "^2.1.3"
+numpy = "^2.1.1"
+polars = "^1.6.0"
+seaborn = "^0.13.2"
+optuna = "^4.0.0"
+scikit-learn = "^1.5.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
