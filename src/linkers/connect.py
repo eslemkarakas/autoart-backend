@@ -60,7 +60,7 @@ class Connectors:
                                     'aws-rds':None,
                                     'aws-aurora':None,
                                     'aws-dynamodb':None,
-                                    'aws-redshift':None,
+                                    'aws-redshift':Redshift(configs=self.configs),
                                     'aws-timestream':None,
                                 }
 
