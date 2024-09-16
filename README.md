@@ -41,6 +41,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#feedback">Contributing</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -69,11 +70,14 @@ AutoArt is a powerful open-source machine learning platform that builds learning
 * [![Polars][Polars.io]][Polars-url]
 * [![sklearn][sklearn.io]][sklearn-url]
 * [![Poetry][Poetry.io]][Poetry-url]
+* [![Docker][Docker.io]][Docker-url]
+* [![MLFlow][MLFlow.io]][MLFlow-url]
 * [![FastAPI][FastAPI.io]][FastAPI-url]
 * [![PyTest][PyTest.io]][PyTest-url]
   
 ### Services
 * [![S3][S3.io]][S3-url]
+* [![Redshift][Redshift.io]][Redshift-url]
 * [![SecretsManager][SecretsManager.io]][SecretsManager-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -90,7 +94,7 @@ You need to have Poetry installed. Here is how to install Poetry and verify the 
 This is an example of how to list things you need to use the software and how to install them.
 * poetry
   ```sh
-  pip install poetry@1.6.0
+  pip install poetry==1.6.0
   poetry --version # confirm the installation
   ```
 
@@ -110,7 +114,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 4. Install development stage dependencies.
    ```sh
-   poetry install --group dev
+   poetry install --only dev
    ```
 5. Change git remote url to avoid accidental pushes to base project.
    ```sh
@@ -131,10 +135,19 @@ This provides a clear note that the usage details will be added later.
 
 
 
+<!-- FEEDBACK -->
+## Feedback
+
+We welcome your positive, negative, and constructive feedback to help shape a growth roadmap for AutoArt. Together, we aim to make AutoArt more effective and user-friendly for everyone.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
@@ -194,6 +207,10 @@ Eslem Karakaş - eslem.karakas.tr@gmail.com
 [Poetry-url]: https://python-poetry.org/docs/
 [Polars.io]: https://img.shields.io/badge/polars-FFFFFF?style=for-the-badge&logo=polars&logoColor=0E76A8
 [Polars-url]: https://pola.rs/
+[Docker.io]: https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=FFFFFF
+[Docker-url]: https://www.docker.com/
+[MLFlow.io]: https://img.shields.io/badge/mlflow-0194E2?style=for-the-badge&logo=mlflow&logoColor=FFFFFF
+[MLFlow-url]: https://mlflow.org/
 [FastAPI.io]: https://img.shields.io/badge/fastapi-009688?style=for-the-badge&logo=fastapi&logoColor=FFFFFF
 [FastAPI-url]: https://fastapi.tiangolo.com/
 [PyTest.io]: https://img.shields.io/badge/pytest-000000?style=for-the-badge&logo=pytest&logoColor=white&color=black
@@ -202,8 +219,9 @@ Eslem Karakaş - eslem.karakas.tr@gmail.com
 [NumPy-url]: https://numpy.org/
 [sklearn.io]: https://img.shields.io/badge/sklearn-FABB00?style=for-the-badge&logo=scikit-learn&logoColor=000000
 [sklearn-url]: https://scikit-learn.org/
-[S3.io]: https://img.shields.io/badge/s3-569AFC?style=for-the-badge&logo=amazon-s3&logoColor=FFFFFF
+[S3.io]: https://img.shields.io/badge/s3-569A31?style=for-the-badge&logo=amazon-s3&logoColor=FFFFFF
 [S3-url]: https://aws.amazon.com/s3/
 [SecretsManager.io]: https://img.shields.io/badge/secretsmanager-E24C4C?style=for-the-badge&logo=aws-secrets-manager&logoColor=FFFFFF
 [SecretsManager-url]: https://aws.amazon.com/secrets-manager/
-
+[Redshift.io]: https://img.shields.io/badge/redshift-4053D6?style=for-the-badge&logo=amazon-redshift&logoColor=FFFFFF
+[Redshift-url]: https://aws.amazon.com/redshift/
