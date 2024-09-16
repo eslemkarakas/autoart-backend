@@ -1,0 +1,41 @@
+name: automated-test-ci
+
+on:
+  push:
+    branches:
+      - 'master'
+      - 'develop'
+  pull_request:
+    branches:
+      - 'master'
+      - 'develop'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.3'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 - --version 1.6.0
+
+      - name: Install dependencies for dev stage
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          poetry install --only dev
+
+      - name: Install dependencies for prod stage
+        if: github.ref == 'refs/heads/master'
+        run: |
+          poetry install --only prod
+
+      - name: Run tests
+        run: |
+          poetry run pytest tests/
