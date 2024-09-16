@@ -26,34 +26,29 @@ from src.controllers.log import access_layer_logger, service_layer_logger, serve
 # /base/*
 class AutoArtError(Exception):
     def __init__(self, message:str):
-        super(AutoArtError, self).__init__(message)
-        access_layer_logger.error(message)
+        super().__init__(message)
 
 # /base/api/*
 class AutoArtAPIError(AutoArtError):
     def __init__(self, message:str):
-        super(AutoArtServiceError, self).__init__(message)
+        super().__init__(message)
         access_layer_logger.error(message)
 
 class UnsupportedOptionError(AutoArtAPIError):
     def __init__(self, message:str):
-        super(UnsupportedOptionError, self).__init__(message)
-        access_layer_logger.error(message)
+        super().__init__(message)
 
 class InvalidConfigurationError(AutoArtAPIError):
     def __init__(self, message:str):
-        super(InvalidConfigurationError, self).__init__(message)
-        access_layer_logger.error(message)
+        super().__init__(message)
 
 class AuthenticationError(AutoArtAPIError):
     def __init__(self, message:str):
-        super(AuthenticationError, self).__init__(message)
-        access_layer_logger.error(message)
+        super().__init__(message)
 
 class AuthorizationError(AutoArtAPIError):
     def __init__(self, message:str):
-        super(AuthorizationError, self).__init__(message)
-        access_layer_logger.error(message)
+        super().__init__(message)
 
 # /base/service/*
 class AutoArtServiceError(AutoArtError):
@@ -63,20 +58,17 @@ class AutoArtServiceError(AutoArtError):
 
 class RequestTimeoutError(AutoArtServiceError):
     def __init__(self, message:str):
-        super(RequestTimeoutError, self).__init__(message)
-        service_layer_logger.error(message)
+        super().__init__(message)
 
 class NotTrainedError(AutoArtServiceError):
     def __init__(self, message:str):
-        super(NotTrainedError, self).__init__(message)
-        service_layer_logger.error(message)
+        super().__init__(message)
 
 class DataManipulationError(AutoArtServiceError):
     def __init__(self, message:str):
-        super(DataManipulationError, self).__init__(message)
-        service_layer_logger.error(message)
+        super().__init__(message)
 
 class ParameterSpaceError(AutoArtServiceError):
     def __init__(self, message:str):
-        super(ParameterSpaceError, self).__init__(message)
-        service_layer_logger.error(message)
+        super().__init__(message)
+
