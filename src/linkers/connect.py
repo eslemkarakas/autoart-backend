@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from src.platforms.aws.storage.s3 import S3
 from src.platforms.aws.database.redshift import Redshift
-from src.controllers.errors import UnsupportedOptionError
+
+from src.controllers.exceptions import UnsupportedOptionError
 
 class Connectors:
     """
