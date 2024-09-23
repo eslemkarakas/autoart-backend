@@ -1,0 +1,70 @@
+name: test-ci2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+        python-versions:
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+          - "3.12"
+          - "pypy-3.7"
+          - "pypy-3.8"
+          - "pypy-3.9"
+
+    name: automated-test-ci
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Get the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-versions }}
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 - --version 1.6.0
+
+      - name: Install dependencies for dev stage
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          poetry install --only dev
+
+      - name: Install dependencies for prod stage
+        if: github.ref == 'refs/heads/master'
+        run: |
+          poetry install --only prod
+
+      - name: Install testing tools for prod stage
+        if: github.ref == 'refs/heads/master'
+        run: |
+          poetry add pytest pytest-cov coverage
+      
+      - name: Run tests
+        run: |
+          poetry run pytest --cov=src tests/
+
+      - name: Display coverage report
+        run: |
+          poetry run coverage report
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: ./htmlcov/
